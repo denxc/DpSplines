@@ -72,7 +72,7 @@ namespace DpSplines {
             for (var j = 0; j < N; ++j) {
                 sSpline[1][j] = new Vector2(0, 0);
                 for (var p = 0; p < m; ++p) {
-                    sSpline[1][j] += aVectors[p] * aQSpline[GetPeriodicalIndex(j - p * n, N)];
+                    sSpline[1][j] += aVectors[p] * aQSpline[GetPositiveIndex(j - p * n, N)];
                 }
             }
 
@@ -80,7 +80,7 @@ namespace DpSplines {
                 for (var j = 0; j < N; ++j) {
                     sSpline[v][j] = new Vector2(0, 0);
                     for (var k = 0; k < N; ++k) {
-                        sSpline[v][j] += aQSpline[k] * sSpline[v - 1][GetPeriodicalIndex(j - k, N)];
+                        sSpline[v][j] += aQSpline[k] * sSpline[v - 1][GetPositiveIndex(j - k, N)];
                     }
                     sSpline[v][j] /= n;
                 }
@@ -170,7 +170,7 @@ namespace DpSplines {
         /// <param name="j">Индекс элемента.</param>
         /// <param name="N">Количество элементов.</param>
         /// <returns>Периодический индекс элемента.</returns>
-        private static int GetPeriodicalIndex(int j, int N) {
+        private static int GetPositiveIndex(int j, int N) {
             if (j >= 0) {
                 return j % N;
             }

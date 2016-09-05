@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DpSplines", "DpSplines.csproj", "{CA46ABEB-AD53-4FE7-934D-87896E996E9D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplinesTest", "SplinesTest\SplinesTest.csproj", "{1B96D59E-FC8F-477A-9E44-8548ED40FB87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CA46ABEB-AD53-4FE7-934D-87896E996E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA46ABEB-AD53-4FE7-934D-87896E996E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA46ABEB-AD53-4FE7-934D-87896E996E9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B96D59E-FC8F-477A-9E44-8548ED40FB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B96D59E-FC8F-477A-9E44-8548ED40FB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B96D59E-FC8F-477A-9E44-8548ED40FB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B96D59E-FC8F-477A-9E44-8548ED40FB87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
