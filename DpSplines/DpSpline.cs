@@ -36,6 +36,10 @@ namespace DpSplines {
                 throw new ArgumentException("Порядок сплайна должен быть > 0.");
             }
 
+            if (n < 1) {
+                throw new ArgumentException("Число узлов между полюсами сплайна должно быть >= 1.");
+            }
+
             var m = aPoints.Length;
             var N = n * m;
 
