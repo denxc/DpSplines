@@ -8,7 +8,12 @@ namespace DpSplines {
     /// http://www.math.spbu.ru/ru/mmeh/AspDok/pub/2010/Chashnikov.pdf
     /// http://dha.spb.ru/PDF/discreteSplines.pdf
     /// </summary>
-    public class DpSpline {
+    public static class DpSpline {
+
+        // Для кеширования q-сплайна.
+        private static int previousPoleCount = -1;
+        private static int previousPointsBeetwinPoleCount = -1;
+        private static double[] qSpline;
 
         /// <summary>
         /// Вычисляет узловые точки дискретного N-периодического сплайна с векторными коэфициентами.
@@ -31,10 +36,6 @@ namespace DpSplines {
                 throw new ArgumentException("Порядок сплайна должен быть > 0.");
             }
 
-            if (n < 1) {
-                throw new ArgumentException("Число узлов между полюсами сплайна должно быть >= 1.");
-            }
-
             var m = aPoints.Length;
             var N = n * m;
 
@@ -46,7 +47,12 @@ namespace DpSplines {
                 aPoints.CopyTo(vectors, 0);
             }
 
-            var qSpline = CalculateQSpline(n, m);
+            if (n != previousPointsBeetwinPoleCount || m != previousPoleCount) {
+                previousPointsBeetwinPoleCount = n;
+                previousPoleCount = m;
+                qSpline = CalculateQSpline(n, m);
+            }
+
             var resultPoints = CalculateSSpline(vectors, qSpline, r, n, m);
 
             return resultPoints;
